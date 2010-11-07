@@ -63,6 +63,7 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
+    solr-ruby (0.0.8)
     thin (1.2.7)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -78,4 +79,5 @@ PLATFORMS
 DEPENDENCIES
   mysql2
   rails (= 3.0.1)
+  solr-ruby
   thin
