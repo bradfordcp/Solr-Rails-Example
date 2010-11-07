@@ -1,10 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'mysql2'
 
 # Use unicorn as the web server
@@ -29,6 +25,8 @@ gem 'nokogiri'
 #   gem 'webrat'
 # end
 gem "will_paginate", "~> 3.0.pre2"
+gem 'solr-ruby'
+
 group :development do
   gem 'thin'
 end
