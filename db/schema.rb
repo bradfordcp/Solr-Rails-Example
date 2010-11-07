@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20101107232145) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "category_id"
