@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   
   cattr_reader :per_page
   @@per_page = 10
-
+  
   # Generates a hash to send to the solr server using the solr-ruby gem
     def to_solr
       sol = {}
