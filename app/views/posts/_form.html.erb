@@ -16,6 +16,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :category %><br />
+    <%= f.collection_select :category_id, Category.all(:order => 'name ASC'), :id, :name, :prompt => true %>
+  </div>
+  <div class="field">
     <%= f.label :body %><br />
     <%= f.text_field :body %>
   </div>
