@@ -1,0 +1,2 @@
+192.168.2.36 -  -  [10/Sep/2010:18:04:00 +0000] "GET /select/?json.wrf=jsonp1284141839171&q=connect&version=2.2&start=0&rows=10&wt=json&facet=true&facet.field=h_type HTTP/1.1" 200 3906 
+192.168.2.36 -  -  [10/Sep/2010:18:04:10 +0000] "GET /select/?json.wrf=jsonp1284141850012&q=connect&version=2.2&start=20&rows=10&wt=json&facet=true&facet.field=h_type HTTP/1.1" 200 4223 

@@ -1,0 +1,65 @@
+***************
+*** 135,141 ****
+              }
+          }
+          _random.setSeed(_random.nextLong()^System.currentTimeMillis()^hashCode()^Runtime.getRuntime().freeMemory());
+-         _sessions=new MultiMap();
+      }
+  
+      /* ------------------------------------------------------------ */
+--- 135,141 ----
+              }
+          }
+          _random.setSeed(_random.nextLong()^System.currentTimeMillis()^hashCode()^Runtime.getRuntime().freeMemory());
++         _sessions=new ConcurrentMultiMap();
+      }
+  
+      /* ------------------------------------------------------------ */
+***************
+*** 176,194 ****
+       */
+      public void invalidateAll(String id)
+      {
+-         synchronized (this)
+-         {
+-             // Do not use interators as this method tends to be called recursively 
+-             // by the invalidate calls.
+-             while (_sessions.containsKey(id))
+-             {
+-                 Session session=(Session)_sessions.getValue(id,0);
+-                 if (session.isValid())
+-                     session.invalidate();
+-                 else
+-                     _sessions.removeValue(id,session);
+-             }
+-         }
+      }
+  
+      /* ------------------------------------------------------------ */
+--- 170,185 ----
+       */
+      public void invalidateAll(String id)
+      {
++ 	// Do not use interators as this method tends to be called recursively 
++ 	// by the invalidate calls.
++ 	while (_sessions.containsKey(id))
++ 	{
++ 	    Session session=(Session)_sessions.getValue(id,0);
++ 	    if (session.isValid())
++ 		session.invalidate();
++ 	    else
++ 		_sessions.removeValue(id,session);
++ 	}
+      }
+  
+      /* ------------------------------------------------------------ */
+***************
+*** 252,255 ****
+          _weakRandom=false;
+      }
+  
+- }--- 243,246 ----
+          _weakRandom=false;
+      }
+  
++ }
