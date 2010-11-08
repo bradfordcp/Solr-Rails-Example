@@ -1,25 +1,21 @@
-<h1>Listing posts</h1>
+<h1>ROBO_BLOG</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<%= will_paginate @posts %>
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <h2><%= link_to post.title, post %></h2>
+  <div class='category'>
+    In: <%= post.category.name %>
+</div>
+<div class='tags'>
+  Tags: <%= post.tags.map(&:name).join(', ') %>
+</div>
+<%= sanitize post.body %>
+<div><%= link_to 'Show', post %> | 
+  <%= link_to 'Edit', edit_post_path(post) %> | 
+  <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+</div>
 <% end %>
-</table>
 
 <br />
-
+<%= will_paginate @posts %>
 <%= link_to 'New Post', new_post_path %>

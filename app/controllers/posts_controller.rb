@@ -2,10 +2,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.select
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { @posts = Post.paginate :page => params[:page] } 
       format.xml  { render :xml => @posts }
     end
   end

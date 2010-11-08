@@ -18,7 +18,7 @@ gem 'mysql2'
 
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
+gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
@@ -28,7 +28,7 @@ gem 'mysql2'
 # group :development, :test do
 #   gem 'webrat'
 # end
-
+gem "will_paginate", "~> 3.0.pre2"
 group :development do
   gem 'thin'
 end
