@@ -6,4 +6,12 @@ class Post < ActiveRecord::Base
   
   cattr_reader :per_page
   @@per_page = 10
+  searchable do
+    text :title, :default_boost => 2
+    text :body
+    integer :category_id, :references => Category
+    time :create_at
+    boost { created_at > (Time.now - 1.day) ? 2.0 : 1.0 } 
+  end
+  
 end
