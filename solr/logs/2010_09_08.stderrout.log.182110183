@@ -1,0 +1,68 @@
+2010-09-08 14:13:24.247:INFO::jetty-6.1.25
+2010-09-08 14:13:24.349:INFO::Deploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/test-jndi.xml -> org.mortbay.jetty.webapp.WebAppContext@ed42d08{/test-jndi,/Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/test-jndi.d}
+2010-09-08 14:13:24.359:INFO::Deploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/test.xml -> org.mortbay.jetty.webapp.WebAppContext@518f5824{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test}
+2010-09-08 14:13:24.385:INFO::Deploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/javadoc.xml -> org.mortbay.jetty.handler.ContextHandler@1232784a{/javadoc,file:/Users/bradfordcp/Projects/java/jetty-6.1.25/javadoc/}
+2010-09-08 14:13:24.473:INFO::No Transaction manager found - if your webapp requires one, please configure one.
+2010-09-08 14:13:25.137:INFO:/:Transparent AsyncProxyServlet @ /google to http://www.google.com
+2010-09-08 14:13:25.145:INFO::Extract file:/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/cometd.war to /tmp/Jetty_0_0_0_0_8080_cometd.war__cometd__.t2qfkl/webapp
+2010-09-08 14:13:28.377:WARN::Unknown realm: Test JAAS Realm
+2010-09-08 14:13:28.504:INFO::Opened /Users/bradfordcp/Projects/java/jetty-6.1.25/logs/2010_09_08.request.log
+2010-09-08 14:13:28.515:INFO::Started SelectChannelConnector@0.0.0.0:8080
+2010-09-08 14:16:54.511:WARN::Config error at <Environment name="solr/home" type="java.lang.String" value="/opt/solr" override="true"/> java.lang.IllegalStateException: Unknown tag: Environment
+2010-09-08 14:16:54.511:WARN::EXCEPTION 
+java.lang.IllegalStateException: Unknown tag: Environment
+	at org.mortbay.xml.XmlConfiguration.configure(XmlConfiguration.java:264)
+	at org.mortbay.xml.XmlConfiguration.configure(XmlConfiguration.java:214)
+	at org.mortbay.jetty.deployer.ContextDeployer.createContext(ContextDeployer.java:369)
+	at org.mortbay.jetty.deployer.ContextDeployer.deploy(ContextDeployer.java:263)
+	at org.mortbay.jetty.deployer.ContextDeployer.access$000(ContextDeployer.java:67)
+	at org.mortbay.jetty.deployer.ContextDeployer$ScannerListener.fileAdded(ContextDeployer.java:89)
+	at org.mortbay.util.Scanner.reportAddition(Scanner.java:410)
+	at org.mortbay.util.Scanner.reportDifferences(Scanner.java:324)
+	at org.mortbay.util.Scanner.scan(Scanner.java:280)
+	at org.mortbay.util.Scanner$1.run(Scanner.java:232)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2010-09-08 14:16:54.512:WARN::ContextDeployer$Scanner failed on '/Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/solr.xml
+2010-09-08 14:17:44.508:INFO::Undeploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/solr.xml -> null
+2010-09-08 14:18:29.521:WARN::FATAL@file:/Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/solr.xml line:1 col:1 : org.xml.sax.SAXParseException: Premature end of file.
+2010-09-08 14:18:29.522:WARN::EXCEPTION 
+org.xml.sax.SAXParseException: Premature end of file.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:195)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:174)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:388)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1414)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:1059)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:648)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:140)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:511)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:808)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:737)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:119)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1205)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:522)
+	at javax.xml.parsers.SAXParser.parse(SAXParser.java:395)
+	at org.mortbay.xml.XmlParser.parse(XmlParser.java:188)
+	at org.mortbay.xml.XmlParser.parse(XmlParser.java:204)
+	at org.mortbay.xml.XmlConfiguration.<init>(XmlConfiguration.java:109)
+	at org.mortbay.jetty.deployer.ContextDeployer.createContext(ContextDeployer.java:362)
+	at org.mortbay.jetty.deployer.ContextDeployer.deploy(ContextDeployer.java:263)
+	at org.mortbay.jetty.deployer.ContextDeployer.access$000(ContextDeployer.java:67)
+	at org.mortbay.jetty.deployer.ContextDeployer$ScannerListener.fileAdded(ContextDeployer.java:89)
+	at org.mortbay.util.Scanner.reportAddition(Scanner.java:410)
+	at org.mortbay.util.Scanner.reportDifferences(Scanner.java:324)
+	at org.mortbay.util.Scanner.scan(Scanner.java:280)
+	at org.mortbay.util.Scanner$1.run(Scanner.java:232)
+	at java.util.TimerThread.mainLoop(Timer.java:512)
+	at java.util.TimerThread.run(Timer.java:462)
+2010-09-08 14:18:29.564:WARN::ContextDeployer$Scanner failed on '/Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/solr.xml
+2010-09-08 14:19:39.519:INFO::Undeploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/solr.xml -> null
+2010-09-08 14:20:46.164:INFO::Shutdown hook executing
+2010-09-08 14:20:46.164:INFO::Graceful shutdown SelectChannelConnector@0.0.0.0:8080
+2010-09-08 14:20:46.273:INFO::Graceful shutdown org.mortbay.jetty.webapp.WebAppContext@ed42d08{/test-jndi,/Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/test-jndi.d}
+2010-09-08 14:20:46.273:INFO::Graceful shutdown org.mortbay.jetty.webapp.WebAppContext@518f5824{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test}
+2010-09-08 14:20:46.274:INFO::Graceful shutdown org.mortbay.jetty.handler.ContextHandler@1232784a{/javadoc,file:/Users/bradfordcp/Projects/java/jetty-6.1.25/javadoc/}
+2010-09-08 14:20:46.274:INFO::Graceful shutdown org.mortbay.jetty.webapp.WebAppContext@2cf5d030{/cometd,file:/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/cometd.war}
+2010-09-08 14:20:46.274:INFO::Graceful shutdown org.mortbay.jetty.webapp.WebAppContext@3e37165f{/test-jaas,file:/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test-jaas/}
+2010-09-08 14:20:47.274:INFO::Stopped SelectChannelConnector@0.0.0.0:8080
+2010-09-08 14:20:49.131:INFO::Shutdown hook complete

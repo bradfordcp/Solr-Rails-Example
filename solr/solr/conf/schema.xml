@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="cambio" version="1.2">
+  <types>
+    <fieldType name="string" class="solr.StrField" indexed="true" sortMissingLast="true" omitNorms="true" stored="true" multiValued="false" />
+    
+    <fieldType name="text" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.HTMLStripStandardTokenizerFactory" /><!-- Possibly only perform on index? -->
+        <filter class="solr.StandardFilterFactory" />
+        <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true" />
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false" /><!-- Possibly remove, or only perform on index -->
+        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1" />
+        <filter class="solr.LowerCaseFilterFactory" />
+        <filter class="solr.PorterStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory" />
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.HTMLStripStandardTokenizerFactory" />
+        <filter class="solr.StandardFilterFactory" />
+        <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true" />
+        <filter class="solr.WordDelimiterFilterFactory" generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1" />
+        <filter class="solr.LowerCaseFilterFactory" />
+        <filter class="solr.PorterStemFilterFactory"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory" />
+      </analyzer>
+    </fieldType>
+  </types>
+  <fields>
+    <field name="id" type="string" required="true" />
+    <field name="type" type="string" required="true" />
+    <field name="title" type="text" />
+    <field name="category" type="string" />
+    <field name="body" type="text" stored="false" indexed="true" />
+    <field name="tidy_body" type="string" stored="true" indexed="false" />
+    <field name="tags" type="string" multiValued="true" />
+  </fields>
+  <uniqueKey>id</uniqueKey>
+  <defaultSearchField>body</defaultSearchField>
+</schema>
