@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
     text :title, :default_boost => 2
     text :body
     integer :category_id, :references => Category
-    time :create_at
+    integer :tag_ids, :references => Tag, :multiple => true
+    time :created_at
     boost { created_at > (Time.now - 1.day) ? 2.0 : 1.0 } 
   end
   
