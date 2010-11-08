@@ -1,0 +1,175 @@
+2010-09-09 11:00:07.484:INFO::jetty-6.1.25
+2010-09-09 11:00:07.554:INFO::Deploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/solr.xml -> org.mortbay.jetty.webapp.WebAppContext@6719dc16{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/apache-solr-1.4.1.war}
+2010-09-09 11:00:07.581:INFO::Deploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/test.xml -> org.mortbay.jetty.webapp.WebAppContext@15f66cff{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test}
+2010-09-09 11:00:07.611:INFO::Deploy /Users/bradfordcp/Projects/java/jetty-6.1.25/contexts/javadoc.xml -> org.mortbay.jetty.handler.ContextHandler@26b4e29b{/javadoc,file:/Users/bradfordcp/Projects/java/jetty-6.1.25/javadoc/}
+2010-09-09 11:00:07.635:INFO::Extract /Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/apache-solr-1.4.1.war to /tmp/Jetty_0_0_0_0_8080_apache.solr.1.4.1.war____wx3urt/webapp
+Sep 9, 2010 11:00:08 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: No /solr/home in JNDI
+Sep 9, 2010 11:00:08 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: solr home defaulted to 'solr/' (could not find system property or JNDI)
+Sep 9, 2010 11:00:08 AM org.apache.solr.core.SolrResourceLoader <init>
+INFO: Solr home set to 'solr/'
+Sep 9, 2010 11:00:08 AM org.apache.solr.servlet.SolrDispatchFilter init
+INFO: SolrDispatchFilter.init()
+Sep 9, 2010 11:00:08 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: No /solr/home in JNDI
+Sep 9, 2010 11:00:08 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: solr home defaulted to 'solr/' (could not find system property or JNDI)
+Sep 9, 2010 11:00:09 AM org.apache.solr.core.CoreContainer$Initializer initialize
+INFO: looking for solr.xml: /Users/bradfordcp/Projects/java/jetty-6.1.25/solr/solr.xml
+Sep 9, 2010 11:00:09 AM org.apache.solr.core.SolrResourceLoader <init>
+INFO: Solr home set to 'solr/'
+Sep 9, 2010 11:00:09 AM org.apache.solr.core.SolrConfig initLibs
+INFO: Adding specified lib dirs to ClassLoader
+Sep 9, 2010 11:00:09 AM org.apache.solr.core.SolrConfig <init>
+INFO: Loaded SolrConfig: solrconfig.xml
+Sep 9, 2010 11:00:09 AM org.apache.solr.core.SolrCore <init>
+INFO: Opening new SolrCore at solr/, dataDir=/opt/solr/data/
+Sep 9, 2010 11:00:09 AM org.apache.solr.schema.IndexSchema readSchema
+INFO: Reading Solr Schema
+Sep 9, 2010 11:00:09 AM org.apache.solr.schema.IndexSchema readSchema
+INFO: Schema name=cambio
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created string: org.apache.solr.schema.StrField
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.HTMLStripStandardTokenizerFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.StandardFilterFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.StopFilterFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.SynonymFilterFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.WordDelimiterFilterFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.LowerCaseFilterFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created null: org.apache.solr.analysis.RemoveDuplicatesTokenFilterFactory
+Sep 9, 2010 11:00:09 AM org.apache.solr.util.plugin.AbstractPluginLoader load
+INFO: created text: org.apache.solr.schema.TextField
+Sep 9, 2010 11:00:09 AM org.apache.solr.schema.IndexSchema readSchema
+INFO: default search field is description
+Sep 9, 2010 11:00:09 AM org.apache.solr.schema.IndexSchema readSchema
+INFO: unique key field: id
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.SolrCore <init>
+INFO: JMX monitoring not detected for core: null
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.SolrCore initListeners
+INFO: Added SolrEventListener: org.apache.solr.core.QuerySenderListener{queries=[]}
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.SolrCore initListeners
+INFO: Added SolrEventListener: org.apache.solr.core.QuerySenderListener{queries=[{q=solr rocks,start=0,rows=10}, {q=static firstSearcher warming query from solrconfig.xml}]}
+Sep 9, 2010 11:00:10 AM org.apache.solr.request.XSLTResponseWriter init
+INFO: xsltCacheLifetimeSeconds=5
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /select: solr.SearchHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /dismax: solr.SearchHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /update: solr.XmlUpdateRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /update/javabin: solr.BinaryUpdateRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /analysis/document: solr.DocumentAnalysisRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /analysis/field: solr.FieldAnalysisRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: adding lazy requestHandler: solr.CSVRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /update/csv: solr.CSVRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /admin/: org.apache.solr.handler.admin.AdminHandlers
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /admin/ping: PingRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.RequestHandlers initHandlersFromConfig
+INFO: created /debug/dump: solr.DumpRequestHandler
+Sep 9, 2010 11:00:10 AM org.apache.solr.search.SolrIndexSearcher <init>
+INFO: Opening Searcher@3c4178d0 main
+Sep 9, 2010 11:00:10 AM org.apache.solr.update.DirectUpdateHandler2$CommitTracker <init>
+INFO: AutoCommit: disabled
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.QueryComponent@2f8bbc98
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.FacetComponent@7f0ab78a
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.MoreLikeThisComponent@1898062f
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.HighlightComponent@24be0446
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.StatsComponent@370aa282
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  debug component:org.apache.solr.handler.component.DebugComponent@1b332109
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.QueryComponent@2f8bbc98
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.FacetComponent@7f0ab78a
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.MoreLikeThisComponent@1898062f
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.HighlightComponent@24be0446
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  component:org.apache.solr.handler.component.StatsComponent@370aa282
+Sep 9, 2010 11:00:10 AM org.apache.solr.handler.component.SearchHandler inform
+INFO: Adding  debug component:org.apache.solr.handler.component.DebugComponent@1b332109
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.QuerySenderListener newSearcher
+INFO: QuerySenderListener sending requests to Searcher@3c4178d0 main
+Sep 9, 2010 11:00:10 AM org.apache.solr.core.CoreContainer register
+INFO: registering core: 
+Sep 9, 2010 11:00:10 AM org.apache.solr.servlet.SolrDispatchFilter init
+INFO: user.dir=/Users/bradfordcp/Projects/java/jetty-6.1.25
+Sep 9, 2010 11:00:10 AM org.apache.solr.servlet.SolrDispatchFilter init
+INFO: SolrDispatchFilter.init() done
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=null path=null params={start=0&event=firstSearcher&q=solr+rocks&rows=10} hits=0 status=0 QTime=130 
+Sep 9, 2010 11:00:11 AM org.apache.solr.servlet.SolrServlet init
+INFO: SolrServlet.init()
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: No /solr/home in JNDI
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: solr home defaulted to 'solr/' (could not find system property or JNDI)
+Sep 9, 2010 11:00:11 AM org.apache.solr.servlet.SolrServlet init
+INFO: SolrServlet.init() done
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: No /solr/home in JNDI
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrResourceLoader locateSolrHome
+INFO: solr home defaulted to 'solr/' (could not find system property or JNDI)
+Sep 9, 2010 11:00:11 AM org.apache.solr.servlet.SolrUpdateServlet init
+INFO: SolrUpdateServlet.init() done
+2010-09-09 11:00:11.028:WARN::Web application not found /Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test
+2010-09-09 11:00:11.059:WARN::Failed startup of context org.mortbay.jetty.webapp.WebAppContext@15f66cff{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test}
+java.io.FileNotFoundException: /Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test
+	at org.mortbay.jetty.webapp.WebAppContext.resolveWebApp(WebAppContext.java:987)
+	at org.mortbay.jetty.webapp.WebAppContext.getWebInf(WebAppContext.java:822)
+	at org.mortbay.jetty.webapp.WebInfConfiguration.configureClassLoader(WebInfConfiguration.java:62)
+	at org.mortbay.jetty.webapp.WebAppContext.doStart(WebAppContext.java:479)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.jetty.handler.ContextHandlerCollection.doStart(ContextHandlerCollection.java:156)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerCollection.doStart(HandlerCollection.java:152)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.jetty.handler.HandlerWrapper.doStart(HandlerWrapper.java:130)
+	at org.mortbay.jetty.Server.doStart(Server.java:224)
+	at org.mortbay.component.AbstractLifeCycle.start(AbstractLifeCycle.java:50)
+	at org.mortbay.xml.XmlConfiguration.main(XmlConfiguration.java:985)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.mortbay.start.Main.invokeMain(Main.java:194)
+	at org.mortbay.start.Main.start(Main.java:534)
+	at org.mortbay.start.Main.start(Main.java:441)
+	at org.mortbay.start.Main.main(Main.java:119)
+2010-09-09 11:00:11.063:INFO::Opened /Users/bradfordcp/Projects/java/jetty-6.1.25/logs/2010_09_09.request.log
+2010-09-09 11:00:11.093:INFO::Started SelectChannelConnector@0.0.0.0:8080
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrCore execute
+INFO: [] webapp=null path=null params={event=firstSearcher&q=static+firstSearcher+warming+query+from+solrconfig.xml} hits=0 status=0 QTime=90 
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.QuerySenderListener newSearcher
+INFO: QuerySenderListener done.
+Sep 9, 2010 11:00:11 AM org.apache.solr.core.SolrCore registerSearcher
+INFO: [] Registered new searcher Searcher@3c4178d0 main
+2010-09-09 11:07:44.812:INFO::Shutdown hook executing
+2010-09-09 11:07:44.812:INFO::Graceful shutdown SelectChannelConnector@0.0.0.0:8080
+2010-09-09 11:07:44.866:INFO::Graceful shutdown org.mortbay.jetty.webapp.WebAppContext@6719dc16{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/apache-solr-1.4.1.war}
+2010-09-09 11:07:44.866:INFO::Graceful shutdown org.mortbay.jetty.webapp.WebAppContext@15f66cff{/,/Users/bradfordcp/Projects/java/jetty-6.1.25/webapps/test}
+2010-09-09 11:07:44.866:INFO::Graceful shutdown org.mortbay.jetty.handler.ContextHandler@26b4e29b{/javadoc,file:/Users/bradfordcp/Projects/java/jetty-6.1.25/javadoc/}
+2010-09-09 11:07:45.866:INFO::Stopped SelectChannelConnector@0.0.0.0:8080
+2010-09-09 11:07:45.902:INFO::Shutdown hook complete

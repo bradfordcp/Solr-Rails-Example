@@ -1,0 +1,17 @@
+***************
+*** 81,87 ****
+                    case ';':
+                    case '#':
+                    case ' ':
+-                       buf=new StringBuffer(path.length()<<1);
+                        break loop;
+                  }
+              }
+--- 81,87 ----
+                    case ';':
+                    case '#':
+                    case ' ':
++                       buf=new StringBuilder(path.length()<<1);
+                        break loop;
+                  }
+              }

@@ -1,0 +1,17 @@
+***************
+*** 387,393 ****
+          HttpFields.Field transfer_encoding = null;
+          boolean keep_alive = false;
+          boolean close=false;
+-         StringBuffer connection = null;
+  
+          if (fields != null)
+          {
+--- 387,393 ----
+          HttpFields.Field transfer_encoding = null;
+          boolean keep_alive = false;
+          boolean close=false;
++         StringBuilder connection = null;
+  
+          if (fields != null)
+          {

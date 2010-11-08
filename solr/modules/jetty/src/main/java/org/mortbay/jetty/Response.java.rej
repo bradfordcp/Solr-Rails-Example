@@ -1,0 +1,17 @@
+***************
+*** 387,393 ****
+  
+          if (!URIUtil.hasScheme(location))
+          {
+-             StringBuffer buf = _connection.getRequest().getRootURL();
+              if (location.startsWith("/"))
+                  buf.append(URIUtil.canonicalPath(location));
+              else
+--- 387,393 ----
+  
+          if (!URIUtil.hasScheme(location))
+          {
++             StringBuilder buf = _connection.getRequest().getRootURL();
+              if (location.startsWith("/"))
+                  buf.append(URIUtil.canonicalPath(location));
+              else
