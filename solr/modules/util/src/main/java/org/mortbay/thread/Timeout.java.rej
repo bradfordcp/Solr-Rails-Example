@@ -1,0 +1,115 @@
+***************
+*** 34,40 ****
+  {
+      private Object _lock;
+      private long _duration;
+-     private long _now=System.currentTimeMillis();
+      private Task _head=new Task();
+  
+      /* ------------------------------------------------------------ */
+--- 34,40 ----
+  {
+      private Object _lock;
+      private long _duration;
++     private volatile long _now=System.currentTimeMillis();
+      private Task _head=new Task();
+  
+      /* ------------------------------------------------------------ */
+***************
+*** 72,100 ****
+      /* ------------------------------------------------------------ */
+      public long setNow()
+      {
+-         synchronized (_lock)
+-         {
+-             _now=System.currentTimeMillis();
+-             return _now; 
+-         }
+      }
+      
+      /* ------------------------------------------------------------ */
+      public long getNow()
+      {
+-         synchronized (_lock)
+-         {
+-             return _now;
+-         }
+      }
+  
+      /* ------------------------------------------------------------ */
+      public void setNow(long now)
+      {
+-         synchronized (_lock)
+-         {
+-             _now=now;
+-         }
+      }
+  
+      /* ------------------------------------------------------------ */
+--- 72,90 ----
+      /* ------------------------------------------------------------ */
+      public long setNow()
+      {
++         return _now=System.currentTimeMillis();
+      }
+      
+      /* ------------------------------------------------------------ */
+      public long getNow()
+      {
++         return _now;
+      }
+  
+      /* ------------------------------------------------------------ */
+      public void setNow(long now)
+      {
++         _now=now;
+      }
+  
+      /* ------------------------------------------------------------ */
+***************
+*** 126,134 ****
+      }
+  
+      /* ------------------------------------------------------------ */
+-     public void tick(long now)
+      {
+-         long _expiry = -1;
+  
+          Task task=null;
+          while (true)
+--- 116,124 ----
+      }
+  
+      /* ------------------------------------------------------------ */
++     public void tick()
+      {
++         final long expiry = _now-_duration;
+  
+          Task task=null;
+          while (true)
+***************
+*** 137,151 ****
+              {
+                  synchronized (_lock)
+                  {
+-                     if (_expiry==-1)
+-                     {
+-                         if (now!=-1)
+-                             _now=now;
+-                         _expiry = _now-_duration;
+-                     }
+-                         
+                      task= _head._next;
+-                     if (task==_head || task._timestamp>_expiry)
+                          break;
+                      task.unlink();
+                      task._expired=true;
+--- 127,134 ----
+              {
+                  synchronized (_lock)
+                  {
+                      task= _head._next;
++                     if (task==_head || task._timestamp>expiry)
+                          break;
+                      task.unlink();
+                      task._expired=true;

@@ -1,0 +1,21 @@
+MASTER / SLAVE START COMMANDS
+=============================
+IRONMAC:jetty-6.1.25 bradfordcp$ JAVA_OPTIONS="-Dsolr.data=/tmp/master -Dsolr.master.enable=true" ./bin/jetty.sh start
+Found JAVA=/usr/bin/java in JAVA_HOME=/
+Starting Jetty: STARTED Jetty Mon Sep 20 12:27:56 EDT 2010
+IRONMAC:jetty-6.1.25 bradfordcp$ 2010-09-20 12:27:56.737:INFO::Logging to STDERR via org.mortbay.log.StdErrLog
+2010-09-20 12:27:56.819:INFO::Redirecting stderr/stdout to /Users/bradfordcp/Projects/java/jetty-6.1.25/logs/2010_09_20.stderrout.log
+
+IRONMAC:jetty-6.1.25 bradfordcp$ JAVA_OPTIONS="-Dsolr.data=/tmp/slave1 -Dsolr.slave.enable=true -Djetty.port=8081 -Dsolr.master.url=http://search.cambio.com:8080/replication" JETTY_PID="/tmp/jetty_slave1.pid" ./bin/jetty.sh start
+Found JAVA=/usr/bin/java in JAVA_HOME=/
+Starting Jetty: STARTED Jetty Mon Sep 20 12:27:56 EDT 2010
+
+IRONMAC:jetty-6.1.25 bradfordcp$ 2010-09-20 12:27:56.737:INFO::Logging to STDERR via org.mortbay.log.StdErrLog
+2010-09-20 12:27:56.819:INFO::Redirecting stderr/stdout to /Users/bradfordcp/Projects/java/jetty-6.1.25/logs/2010_09_20.stderrout.log
+
+IRONMAC:jetty-6.1.25 bradfordcp$ JAVA_OPTIONS="-Dsolr.data=/tmp/slave2 -Dsolr.slave.enable=true -Djetty.port=8082 -Dsolr.master.url=http://search.cambio.com:8080/replication" JETTY_PID="/tmp/jetty_slave2.pid" ./bin/jetty.sh start
+Found JAVA=/usr/bin/java in JAVA_HOME=/
+Starting Jetty: STARTED Jetty Mon Sep 20 12:30:03 EDT 2010
+
+IRONMAC:jetty-6.1.25 bradfordcp$ 2010-09-20 12:30:03.924:INFO::Logging to STDERR via org.mortbay.log.StdErrLog
+2010-09-20 12:30:04.015:INFO::Redirecting stderr/stdout to /Users/bradfordcp/Projects/java/jetty-6.1.25/logs/2010_09_20.stderrout.log
