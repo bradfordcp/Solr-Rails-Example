@@ -1,4 +1,15 @@
 class PostsController < ApplicationController
+
+  def search
+    @search = Post.search do
+      keywords(params[:q])
+      with :category_id, params[:category_id] if params[:category_id]
+      with :tag_ids, params[:tag_ids] if params[:tag_ids]
+      facet :category_id
+      facet :tag_ids
+    end
+  end
+  
   # GET /posts
   # GET /posts.xml
   def index
