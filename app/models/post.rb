@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
       sol[:title] = self.title
       sol[:category] = self.category.name
       sol[:body] = self.body
-      sol[:tidy_body] = HTML::FullSanitizer.new.sanitize(self.description)[0..250]
+      sol[:tidy_body] = HTML::FullSanitizer.new.sanitize(self.body)[0..250]
       
       tags = []
       self.tags.each do |tag|

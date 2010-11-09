@@ -2,7 +2,8 @@ Solr::Application.routes.draw do
   resources :tags
 
   resources :categories
-
+  
+  match 'posts/search' => 'posts#search'
   resources :posts
 
   # The priority is based upon order of creation:
