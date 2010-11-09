@@ -4,29 +4,3 @@
     <input type="text" name="q" placeholder="Press Enter to Search" />
   </form>
 </div>
-<div class="categories">
-  <h2>Categories</h2>
-  <ul>
-    <% if @post %>
-      <li><%= @post.category.name %></li>
-    <% else %>
-      <% Category.all(:order => "name ASC").each do |category| %>
-        <li><%= category.name %></li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
-<div class="tags">
-  <h2>Tags</h2>
-  <ul>
-    <% if @post %>
-      <% @post.tags.each do |tag| %>
-        <li><%= tag.name %></li>
-      <% end %>
-    <% else %>
-      <% Tag.all(:order => "name ASC").each do |tag| %>
-        <li><%= tag.name %></li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>

@@ -25,14 +25,13 @@
   <div class="result">
     <h2><%= link_to  truncate(post.title, :length => 100), post %></h2>
     <%= hit.score %>
-    <%= sanitize truncate(post.body, :length => 500) %>
     <div class='category'>
       In: <%= post.category.name %>
     </div>
     <div class='tags'>
       Tags: <%= post.tags.map(&:name).join(', ') %>
     </div>
-
+    <%= sanitize truncate(post.body, :length => 500) %>
   </div>
 <% end %>
 <%= will_paginate(@search.results) %>
