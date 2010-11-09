@@ -80,4 +80,8 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  # GET /posts/search
+  def search
+  end
 end
