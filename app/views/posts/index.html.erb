@@ -1,15 +1,13 @@
-<h1>ROBO_BLOG</h1>
-
 <%= will_paginate @posts %>
 <% @posts.each do |post| %>
   <h2><%= link_to post.title, post %></h2>
-  <div class='category'>
-    In: <%= post.category.name %>
+<%= sanitize post.body %>
+<div class='category'>
+  In: <%= post.category.name %>
 </div>
 <div class='tags'>
   Tags: <%= post.tags.map(&:name).join(', ') %>
 </div>
-<%= sanitize post.body %>
 <div><%= link_to 'Show', post %> | 
   <%= link_to 'Edit', edit_post_path(post) %> | 
   <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>

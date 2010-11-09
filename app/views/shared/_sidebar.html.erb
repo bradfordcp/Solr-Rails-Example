@@ -1,0 +1,32 @@
+<div>
+  <form action="/posts/search" method="GET">
+    <h2>Search:</h2>
+    <input type="text" name="q" placeholder="Press Enter to Search" />
+  </form>
+</div>
+<% if @post || @posts %>
+  <div>
+    <h2>Categories</h2>
+    <ul>
+      <% if @post %>
+        <li><%= @post.category.name %></li>
+      <% else %>
+        <% Category.all(:order => "name ASC").each do |category| %>
+          <li><%= category.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <h2>Tags</h2>
+    <% if @post %>
+      <% @post.tags.each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    <% else %>
+      <% Tag.all(:order => "name ASC").each do |tag| %>
+        <li><%= tag.name %></li>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

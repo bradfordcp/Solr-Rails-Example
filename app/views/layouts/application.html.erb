@@ -7,8 +7,17 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container_16">
+    <div class="grid_16">
+      <h1>ROBO_BLOG</h1>
+    </div>
+    <div class="grid_12">
+      <%= yield %>
+    </div>
+    <div class="grid_4">
+      <%= render :partial => 'shared/sidebar' %>
+    </div>
+    <div class="clear"></div>
+  </div>
 </body>
 </html>
