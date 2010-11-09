@@ -3,7 +3,7 @@ namespace :solr do
   task :reindex => :environment do
     STDOUT.sync = true
     
-    SOLR_SERVER = 'http://127.0.0.1:8983/solr'
+    SOLR_SERVER = 'http://127.0.0.1:8080'
     
     puts "Connecting to Solr Server: #{SOLR_SERVER}"
     require 'solr'
@@ -13,7 +13,7 @@ namespace :solr do
     conn.delete_by_query('*:*')
     conn.commit
     
-    puts "Syncing Content Nodes"
+    puts "Syncing Posts"
     Post.all.each do |post|
       begin
         conn.add(post.to_solr)
