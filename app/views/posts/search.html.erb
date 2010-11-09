@@ -1,35 +1,38 @@
 <h1>Search results for: <%= params['q'] %></h1>
-
-<div id="facets" style="width: 200px; float:right">
-<ul class="category_facet">
-  <% @search.facet(:category_id).rows.each do |row| %>
-    <li class="facet_row">
-    <%= link_to(row.instance.name, params.merge(:category_id => row.value)) %>
-    <%= row.count %>
-    </li>
-  <% end %>
-</ul>
-<ul class="tag_facet">
-  <% @search.facet(:tag_ids).rows.each do |row| %>
-    <li class="facet_row">
-    <%= link_to(row.instance.name, params.merge(:tag_ids => row.value)) %>
-    <%= row.count %>
-    </li>
-  <% end %>
-</ul>
-</div>
-
+<% content_for :sidebar do %>
+  <div id="facets">
+    <h2>Categories</h2>
+    <ul class="category_facet">
+      <% @search.facet(:category_id).rows.each do |row| %>
+        <li class="facet_row">
+        <%= link_to(row.instance.name, params.merge(:category_id => row.value)) %>
+        <%= row.count %>
+        </li>
+      <% end %>
+    </ul>
+    <h2>Tags</h2>
+    <ul class="tag_facet">
+      <% @search.facet(:tag_ids).rows.each do |row| %>
+        <li class="facet_row">
+        <%= link_to(row.instance.name, params.merge(:tag_ids => row.value)) %>
+        <%= row.count %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <% @search.each_hit_with_result do |hit, post| %>
   <div class="result">
     <h2><%= link_to  truncate(post.title, :length => 100), post %></h2>
     <%= hit.score %>
+    <%= sanitize truncate(post.body, :length => 500) %>
     <div class='category'>
       In: <%= post.category.name %>
     </div>
     <div class='tags'>
       Tags: <%= post.tags.map(&:name).join(', ') %>
     </div>
-    <%= sanitize truncate(post.body, :length => 500) %>
+
   </div>
 <% end %>
 <%= will_paginate(@search.results) %>
