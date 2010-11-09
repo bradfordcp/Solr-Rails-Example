@@ -5,3 +5,15 @@ body {
 .container_16 {
   background: #fcfeff;
 }
+
+#search_results ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#search_results ol li {
+  list-style: none;
+  padding: 0;
+  margin: 15px;
+}
