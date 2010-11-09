@@ -6,9 +6,10 @@ var solr = {
     rows: 10,
     query: unescape($.url.param("q").replace("+", " ")),
     facet: true,
-    "facet.field": "tags",
+    facet_field: false,
+    facet_value: false,
+    facet_fields: new Array("tags", "category"),
     performing: false,
-    type: false,
     max_page: 1
   }
 };
@@ -19,8 +20,11 @@ solr.init = function (e) {
     solr.params.page = Math.floor(Number($.url.param("page")) - 1);
     solr.params.start = solr.params.page * solr.params.rows;
   }
-  if ($.url.param("type")) {
-    solr.params.type = $.url.param("type");
+  if ($.url.param("facet_field")) {
+    solr.params.facet_field = $.url.param("facet_field");
+  }
+  if ($.url.param("facet_value")) {
+    solr.params.facet_value = $.url.param("facet_value");
   }
 
   // Perform the query
@@ -37,11 +41,11 @@ solr.init = function (e) {
 }
 
 solr.scrolled = function(e) {
-  if (!solr.params.performing && ((solr.params.page < solr.params.max_page && $(document).height() - ($(window).height() + $(this).scrollTop()) < 100) || ($(window).height() == $(document).height()))) {
-        solr.params.start = solr.params.page * solr.params.rows;
-        
-        solr.execute(solr.params.query);
-      }
+  if (!solr.params.performing && ((solr.params.page < solr.params.max_page && $(document).height() - ($(window).height() + $(this).scrollTop()) < 100))) {
+    solr.params.start = solr.params.page * solr.params.rows;
+
+    solr.execute(solr.params.query);
+  }
 }
 
 solr.execute = function(query) {
@@ -54,14 +58,18 @@ solr.execute = function(query) {
     start: solr.params.start,
     rows: solr.params.rows,
     wt: 'json',
-    facet: solr.params.facet,
-    "facet.field": solr.params["facet.field"]
+    facet: true,
+    "facet.field": new Array()
   };
   
-  if (solr.params.type) {
-    params.facet = true;
-    params["facet.field"] = "{!ex=type_tag}" + solr.params["facet.field"];
-    params.fq = "{!tag=type_tag}" + solr.params["facet.field"] + ":" + $.url.param("type");
+  for (var i in solr.params.facet_fields) {
+    var facet = solr.params.facet_fields[i];
+    
+    params["facet.field"].push("{!ex=type_tag}" + facet);
+  }
+  
+  if (solr.params.facet_field) {
+    params.fq = "{!tag=type_tag}" + solr.params.facet_field + ":" + solr.params.facet_value;
   }
   
   $.ajax(
@@ -72,6 +80,7 @@ solr.execute = function(query) {
       jsonp: 'json.wrf',
       success: solr.success,
       type: 'GET',
+      traditional: true,
       url: solr.params.server + '/select/'
     }
   );
@@ -101,35 +110,28 @@ solr.success = function (data, text_status, request) {
   $("#stats").html(stats);
   $("#search_results ol").attr("start", (data.responseHeader.params.rows * current_page) + 1);
   
-  // Empty the facets
-  $(".tags ul").html('');
-  
   var query = $.url.param("q");  
   $("#term").html(query.replace("+", " "));
   
   // Add the facets
-  var facets = {};
-  var total = 0;
-  var raw_facets = data.facet_counts.facet_fields[solr.params["facet.field"]];
-  for (var i = 0; i < raw_facets.length; i += 2) {
-    facets[raw_facets[i]] = raw_facets[i+1];
-  }
-  for (var key in facets) {
-    var facet = '<li class='+ key +'><a href="/posts/search?q=' + data.responseHeader.params.q + '&type=' + key + '">' + key + ' (' + facets[key] + ')</a></li>';
-    $(".tags ul").append(facet);
-    total += facets[key];
-  }
-  
-  var facet = '<li class="everything"><a href="/posts/search?q=' + data.responseHeader.params.q + '">everything</a></li>';
-  $(".tags ul").prepend(facet);
-  
-  // Empty the results
-  var type = solr.params.type;
-  
-  if (type) {
-      $("#facets").find('li.' + type + ' a').addClass('active');
-  } else {
-      $("#facets").find('li.everything a').addClass('active');
+  for (var i in solr.params.facet_fields) {
+    var facet = solr.params.facet_fields[i];
+    
+    // Empty the facets
+    $("." + facet + " ul").html('');
+    
+    var facets = {};
+    var raw_facets = data.facet_counts.facet_fields[facet];
+    for (var i = 0; i < raw_facets.length; i += 2) {
+      facets[raw_facets[i]] = raw_facets[i+1];
+    }
+    for (var key in facets) {
+      var html_facet = '<li class='+ key +'><a href="/posts/search?q=' + data.responseHeader.params.q + '&facet_field=' + facet + '&facet_value=' + key + '">' + key + ' (' + facets[key] + ')</a></li>';
+      $("." + facet + " ul").append(html_facet);
+    }
+    var html_facet = '<li class="everything"><a href="/posts/search?q=' + data.responseHeader.params.q + '">everything</a></li>';
+    $("." + facet + " ul").prepend(html_facet);
+    
   }
   
   // Add the results
