@@ -8,23 +8,32 @@ class Post < ActiveRecord::Base
   @@per_page = 10
   
   # Generates a hash to send to the solr server using the solr-ruby gem
-    def to_solr
-      sol = {}
+  def to_solr
+    sol = {}
 
-      sol[:id] = "#{self.class}:#{self.id}"
-      sol[:type] = self.class
-      sol[:title] = self.title
-      sol[:category] = self.category.name
-      sol[:body] = self.body
-      sol[:tidy_body] = HTML::FullSanitizer.new.sanitize(self.body)[0..250]
-      
-      tags = []
-      self.tags.each do |tag|
-        tags << tag.name
-      end
-      sol[:tags] = tags
-
-      return sol
+    sol[:id] = "#{self.class}:#{self.id}"
+    sol[:type] = self.class
+    sol[:title] = self.title
+    sol[:category] = self.category.name
+    sol[:body] = self.body
+    sol[:tidy_body] = HTML::FullSanitizer.new.sanitize(self.body)[0..250]
+    
+    tags = []
+    self.tags.each do |tag|
+      tags << tag.name
     end
+    sol[:tags] = tags
+
+    return sol
+  end
+  
+  def after_save
+    solr_server = 'http://127.0.0.1:8080'
+    
+    require 'solr'
+    conn = Solr::Connection.new(solr_server)
+    conn.add(self.to_solr)
+    conn.commit
+  end
 
 end
