@@ -6,3 +6,11 @@ tmp/**/*
 .DS_Store
 solr/solr/data
 solr/logs/*
+solr/contrib/
+solr/examples/
+solr/extras/
+solr/javadoc/
+solr/jxr/
+solr/contexts/javadoc.xml
+solr/contexts/test.d/
+solr/contexts/test.xml
